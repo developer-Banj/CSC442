@@ -2,132 +2,133 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Specimen Analyzer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MicroScale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f7fc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #eef2f3, #d1d5db);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
 
-        .container {
-            background-color: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            border-radius: 8px;
-            width: 400px;
-        }
+    .container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 30px;
+    }
 
-        h2 {
-            text-align: center;
-            color: #4e73df;
-            margin-bottom: 30px;
-        }
+    h2 {
+      text-align: center;
+      color: #2563eb;
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
 
-        label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 16px;
-            color: #555;
-        }
+    label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+      color: #374151;
+      font-size: 15px;
+    }
 
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      margin-bottom: 20px;
+      transition: border 0.3s;
+    }
 
-        input[type="text"]:focus,
-        input[type="number"]:focus {
-            border-color: #4e73df;
-        }
+    input:focus {
+      border-color: #2563eb;
+      outline: none;
+    }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #4e73df;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      background-color: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        button:hover {
-            background-color: #3558c5;
-        }
+    button:hover {
+      background-color: #1e40af;
+    }
 
-        .result {
-            margin-top: 20px;
-            background-color: #dff0d8;
-            padding: 12px;
-            border-radius: 6px;
-            color: #3c763d;
-            text-align: center;
-            font-weight: 600;
-        }
+    .result,
+    .error {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-align: center;
+    }
 
-        .error {
-            margin-top: 20px;
-            background-color: #f2dede;
-            padding: 12px;
-            border-radius: 6px;
-            color: #a94442;
-            text-align: center;
-            font-weight: 600;
-        }
-    </style>
+    .result {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+
+    .error {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Specimen Analyzer</h2>
-        <form method="POST">
-            <label for="username">Your Name</label>
-            <input type="text" name="username" id="username" required>
+  <div class="container">
+    <h2>MicroScale</h2>
+    <form method="POST">
+      <label for="username">Your Name</label>
+      <input type="text" name="username" id="username" required />
 
-            <label for="microscope_size">Microscope Image Size (mm)</label>
-            <input type="number" step="any" name="microscope_size" id="microscope_size" required>
+      <label for="microscope_size">Microscope Image Size (mm)</label>
+      <input type="number" step="any" name="microscope_size" id="microscope_size" required />
 
-            <label for="magnification">Magnification Level</label>
-            <input type="number" step="any" name="magnification" id="magnification" required>
+      <label for="magnification">Magnification Level</label>
+      <input type="number" step="any" name="magnification" id="magnification" required />
 
-            <button type="submit">Calculate Actual Size</button>
-        </form>
+      <button type="submit">Calculate Actual Size</button>
+    </form>
 
-        {% if result %}
-        <div class="result">
-            <strong>Result:</strong> The actual size is <strong>{{ result }} µm</strong>.
-        </div>
-        {% endif %}
-
-        {% if error %}
-        <div class="error">
-            <strong>Error:</strong> {{ error }}
-        </div>
-        {% endif %}
+    {% if result %}
+    <div class="result">
+      <strong>Result:</strong> The actual size is <strong>{{ result }} µm</strong>.
     </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="error">
+      <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
+  </div>
 </body>
 
 </html>
